@@ -4,7 +4,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -25,32 +24,43 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.compose.SubcomposeAsyncImage
+import com.example.ebook.presentation.Effects.imageani
 
 @Composable
 fun Bookcart(
 
-    imageUrl : String,
-    title : String,
-    author : String = null.toString(),
+    imageUrl: String,
+    title: String,
+    author: String = null.toString(),
     description: String,
     navHostController: NavHostController,
-    bookUrl : String){
-    Card (
-        modifier = Modifier.fillMaxWidth().padding(8.dp).clickable{
-            navHostController.navigate()
-        }
-    ){
-        Row (
+    bookUrl: String
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+            .clickable {
+                navHostController.navigate()
+            }
+    ) {
+        Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth().height(150.dp).padding(8.dp)
-        ){
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(150.dp)
+                .padding(8.dp)
+        ) {
             SubcomposeAsyncImage(
                 model = imageUrl,
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.size(100.dp).clip(RoundedCornerShape(8.dp)),
+                modifier = Modifier
+                    .size(100.dp)
+                    .clip(RoundedCornerShape(8.dp)),
                 loading = {
                     // use imageani()
+                    imageani()
                 },
                 error = {
                     Text(text = "Error loading image")
