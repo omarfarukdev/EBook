@@ -22,25 +22,38 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.compose.SubcomposeAsyncImage
+import com.example.ebook.presentation.navigation.Routes
 
 @Composable
-fun BookCategoryCard (
+fun BookCategoryCard(
     imageUrl: String,
     category: String,
     navHostController: NavHostController
-){
-    Card (
-        modifier = Modifier.padding(8.dp).clickable{
-            navHostController.navigate()//navigate to BooksbyCategory
-        }
-    ){
-        Column(modifier = Modifier.size(200.dp).padding(8.dp), horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(8.dp)) {
+) {
+    Card(
+        modifier = Modifier
+            .padding(8.dp)
+            .clickable {
+                navHostController.navigate(
+                    Routes.BooksByCategory(category)
+                )//navigate to BooksbyCategory
+            }
+    ) {
+        Column(
+            modifier = Modifier
+                .size(200.dp)
+                .padding(8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
             SubcomposeAsyncImage(
                 model = imageUrl,
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxWidth().weight(1f).clip(RoundedCornerShape(8.dp)),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .clip(RoundedCornerShape(8.dp)),
                 loading = {
 
                 },
@@ -58,7 +71,7 @@ fun BookCategoryCard (
                 maxLines = 3,
                 overflow = TextOverflow.Ellipsis,
 
-            )
+                )
 
         }
     }

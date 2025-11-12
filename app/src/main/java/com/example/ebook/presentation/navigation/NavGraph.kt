@@ -1,6 +1,7 @@
 package com.example.ebook.presentation.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -10,7 +11,7 @@ import com.example.ebook.presentation.HomeScreen.HomeScreen
 import com.example.ebook.presentation.PdfViewerScreen
 
 @Composable
-fun NavGraph(navHostController: NavHostController) {
+fun NavGraph(navHostController: NavHostController, modifier: Modifier) {
     NavHost(navController = navHostController, startDestination = Routes.HomeScreen) {
         composable<Routes.HomeScreen> {
 

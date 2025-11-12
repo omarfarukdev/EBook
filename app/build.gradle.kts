@@ -10,9 +10,7 @@ plugins {
 
 android {
     namespace = "com.example.ebook"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.ebook"
@@ -43,6 +41,9 @@ android {
     buildFeatures {
         compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.7.5"
+    }
 }
 
 dependencies {
@@ -63,27 +64,24 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    // this is for extra icons implementation("androidx.compose.material:material-icons-extended:1.6.8")
+    // this is for extra icons
+    implementation("androidx.compose.material:material-icons-extended:1.6.8")
 
-// this ia for hillt dependency injection
+    // Hilt
     implementation("com.google.dagger:hilt-android:2.57.2")
     kapt("com.google.dagger:hilt-android-compiler:2.57.2")
-
-    // this is for using hiltviewModel
     implementation("androidx.hilt:hilt-navigation-compose:1.3.0")
-
     kapt("androidx.hilt:hilt-compiler:1.3.0")
 
-    // for the navigation
+    // Navigation
     implementation("androidx.navigation:navigation-compose:2.9.5")
 
-
-// for the serializatioz
+    // Serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
 
-    // this is for coil
+    // Coil
     implementation("io.coil-kt:coil-compose:2.7.0")
 
-    //pdf
-    implementation ("io.github.grizzi91:bouquet:1.1.3")
+    // PDF
+    implementation("io.github.grizzi91:bouquet:1.1.3")
 }
