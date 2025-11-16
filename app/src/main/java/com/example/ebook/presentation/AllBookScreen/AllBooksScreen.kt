@@ -1,4 +1,6 @@
 package com.example.ebook.presentation.AllBookScreen
 
-class AllBooksScreen {
+import androidx.navigation.NavHostController
+
+class AllBooksScreen(navHostController: NavHostController) {
 }

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Book
@@ -21,6 +22,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.ebook.presentation.AllBookScreen.AllBooksScreen
+import com.example.ebook.presentation.CategoryScreen.CategoryScreen
 import kotlinx.coroutines.launch
 
 @Composable
@@ -58,6 +61,12 @@ fun TabScreen(navHostController: NavHostController) {
                         }
                     }
                 )
+            }
+        }
+        HorizontalPager(pagerState) { page ->
+            when (page) {
+                0 -> CategoryScreen(navHostController = navHostController)
+                1 -> AllBooksScreen(navHostController = navHostController)
             }
         }
     }
